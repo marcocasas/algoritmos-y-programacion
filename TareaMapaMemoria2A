@@ -37,5 +37,4 @@ public class Algo {
       v = input3.nextInt();
     }
 	}
-
 }
