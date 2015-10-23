@@ -87,7 +87,7 @@ public class ManejadorArreglos {
 		int left, right, center;
 		left = 0;
 		right = length - 1;
-		center = length/2;
+		center = (left+right)/2; //???
 		
 		while(left<=right && aBuscar != array[center]) {
 			if (aBuscar < array[center]) {
@@ -117,6 +117,25 @@ public class ManejadorArreglos {
 		return length; //Regreso el tamaño porque fuera de mi método no se refleja el cambio.
 	}
 	
+	public static int insertaDatoOrdenado(double array[], int length, double dato) {
+		if(length < array.length) { //Saber si hay espacio. Comparo el número de elementos con la cantidad posible de elementos
+			int pos;
+			pos = busquedaBinaria(array, length, dato);
+			
+			if (pos < 0) {
+				pos = pos * -1 -1;
+			
+				recorreDer(array,length,pos);
+			
+				array[pos] = dato;
+		
+				length = length + 1;
+			}
+		}
+		
+		return length;
+	}
+	
 	public static int eliminaDatoDesord(double array[], int length, double dato) {
 		int pos = busquedaSecuencial(array, length, dato);
 		
@@ -128,6 +147,17 @@ public class ManejadorArreglos {
 		return length;
 	}
 
+	public static int eliminaDatoOrdenado(double array[], int length, double dato) {
+		int pos = busquedaBinaria(array, length, dato);
+		
+		if (pos >= 0) {
+			recorrerIzq(array, length, pos);
+			length--;
+		}
+		
+		return length;
+	}
+	
 	public static void recorreDer(double array[], int length, int posicion) {
 		for(int i = length; i>posicion; i--) {
 			array[i] = array[i-1];
