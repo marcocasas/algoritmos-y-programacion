@@ -83,7 +83,7 @@ public class ManejadorArreglos {
 		return i;
 	}
 	
-	public static int busquedaBinaria(double array[], int length, double aBuscar) { //SOLAMENTE PARA ARREGLOS ORDENADOS.
+	public static int busquedaBinaria(double array[], int length, double aBuscar) { //SOLO PARA ARREGLOS ORDENADOS.
 		int left, right, center;
 		left = 0;
 		right = length - 1;
@@ -167,6 +167,26 @@ public class ManejadorArreglos {
 	public static void recorrerIzq(double array[], int length, int posicion) {
 		for(int i = posicion; i<length-1; i++) {
 			array[i] = array[i+1];
+		}
+	}
+	
+	public static void ordenaSelDir(double array[], int length) {
+		double min;
+		int pos;
+		
+		for (int i = 0; i<length-1; i++) {
+			min = array[i];
+			pos = i;
+			
+			for (int j = i; j<length; j++) {
+				if (array[j]<min) {
+					min = array[j];
+					pos = j;
+				}
+			}
+		
+			array[pos] = array[i];
+			array[i] = min;
 		}
 	}
 	
