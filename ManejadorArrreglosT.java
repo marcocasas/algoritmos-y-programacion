@@ -59,4 +59,16 @@ public class ManejadorArreglosGenericos {
 		
 		return center;
 	}
+	
+	public static <T extends Comparable <T>> int searchMax(T array[], int length) {
+		int index = 0;
+		
+		for (int i = 1; i < length; i++) {
+			if (array[i].compareTo(array[index]) > 0) {
+				index = i;
+			}
+		}
+		
+		return index;
+	}
 }
