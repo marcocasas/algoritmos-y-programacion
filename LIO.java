@@ -41,6 +41,56 @@ public class LIO <T extends Comparable <T>> { //Lista Indexada Ordenada
 	}
 	
 	public void clear() {
+		collection = new Comparable[MAX];
 		length = 0;
+	}
+	
+	public void ensureCapacity(int val) {
+		T newCol[] = (T[]) new Comparable[val];
+		
+		for (int i = 0; i < collection.length; i++) {
+			newCol[i] = collection[i];
+		}
+		
+		collection = newCol;
+	}
+	
+	public boolean add(T obj) {
+		boolean response = false;
+		int pos;
+		
+		if (collection.length == length) {
+			ensureCapacity(length*2);
+		}
+		
+		pos = ManejadorArreglosGenericos.binSearch(collection, length, obj);
+				
+		if (pos < 0) {
+			pos = pos * -1 -1;
+			ManejadorArreglosGenericos.moveRight(collection, length, pos);
+			collection[pos] = obj;
+			length++;
+			response = true;
+		}
+		
+		return response;
+	}
+	
+	public boolean remove(T obj) {
+		int newSize;
+		boolean response;
+		
+		//newSize = ManejadorArregloGenericos.deleteOrdered();
+		
+		if (size == newSize) {
+			response = false;
+		}
+		
+		else {
+			response = true;
+			size = newSize;
+		}
+		
+		return response;
 	}
 }
