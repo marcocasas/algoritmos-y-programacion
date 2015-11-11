@@ -11,7 +11,7 @@ public class ManejadorArreglosGenericos {
 		}
 	}
 	
-	public static <T> String toString(T array[], int length, int position){
+	public static <T> String toString(T array[], int length){
 		StringBuilder str = new StringBuilder();
 		int i;
 		
