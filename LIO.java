@@ -1,17 +1,17 @@
 public class LIO <T extends Comparable <T>> { //Lista Indexada Ordenada
 	private T collection[];
-	private int length;
+	private int size;
 	private final int MAX = 20;
 	
 	public LIO() {
 		collection = (T[]) new Comparable[MAX];
-		length = 0;
+		size = 0;
 	}
 	
 	public String toString() {
 		StringBuilder str = new StringBuilder();
 		
-		for (int i = 0; i<length; i++) {
+		for (int i = 0; i<size; i++) {
 			str.append(collection[i]).append("\n");
 		}
 		
@@ -19,19 +19,19 @@ public class LIO <T extends Comparable <T>> { //Lista Indexada Ordenada
 	}
 	
 	public int size() {
-		return length;
+		return size;
 	}
 	
 	public boolean isEmpty() {
-		return length == 0;
+		return size == 0;
 	}
 	
 	public boolean contains(T obj) {
-		return (ManejadorArreglosGenericos.binSearch(collection, length, obj) >= 0);
+		return (ManejadorArreglosGenericos.binSearch(collection, size, obj) >= 0);
 	}
 	
 	public int indexOf(T obj) {
-		int index = ManejadorArreglosGenericos.binSearch(collection, length, obj);
+		int index = ManejadorArreglosGenericos.binSearch(collection, size, obj);
 		
 		if (index < 0) {
 			index = -1;
@@ -41,8 +41,8 @@ public class LIO <T extends Comparable <T>> { //Lista Indexada Ordenada
 	}
 	
 	public void clear() {
-		collection = new Comparable[MAX];
-		length = 0;
+		collection = (T[]) new Comparable[MAX];
+		size = 0;
 	}
 	
 	public void ensureCapacity(int val) {
@@ -59,17 +59,17 @@ public class LIO <T extends Comparable <T>> { //Lista Indexada Ordenada
 		boolean response = false;
 		int pos;
 		
-		if (collection.length == length) {
-			ensureCapacity(length*2);
+		if (collection.length == size) {
+			ensureCapacity(size*2);
 		}
 		
-		pos = ManejadorArreglosGenericos.binSearch(collection, length, obj);
+		pos = ManejadorArreglosGenericos.binSearch(collection, size, obj);
 				
 		if (pos < 0) {
 			pos = pos * -1 -1;
-			ManejadorArreglosGenericos.moveRight(collection, length, pos);
+			ManejadorArreglosGenericos.moveRight(collection, size, pos);
 			collection[pos] = obj;
-			length++;
+			size++;
 			response = true;
 		}
 		
@@ -77,20 +77,49 @@ public class LIO <T extends Comparable <T>> { //Lista Indexada Ordenada
 	}
 	
 	public boolean remove(T obj) {
-		int newSize;
-		boolean response;
+		boolean response = false;
+		int newSize = ManejadorArreglosGenericos.deleteOrdered(collection, size, obj);
 		
-		//newSize = ManejadorArregloGenericos.deleteOrdered();
-		
-		if (size == newSize) {
-			response = false;
-		}
-		
-		else {
+		if (size > newSize) {
 			response = true;
 			size = newSize;
 		}
 		
 		return response;
+	}
+	
+	public T remove(int index) {
+		T result = null;
+		
+		if (index < size && index >= 0) {
+			result = collection[index];
+		}
+		
+		return result;
+	}
+	
+	public T set(T obj, int index) {
+		T resul = null;
+		
+		if (index < size && index >= 0) {
+			resul = collection[index];
+			collection[index] = obj;
+			
+			ManejadorArreglosGenericos.moveLeft(collection, size, index);
+			
+			size = size-1;
+		}
+		
+		return resul;
+	}
+
+	public T get(int index) {
+		T result = null;
+		
+		if (index < size && index >= 0) {
+			result = collection[index];
+		}
+		
+		return result;
 	}
 }
