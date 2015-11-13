@@ -71,4 +71,15 @@ public class ManejadorArreglosGenericos {
 		
 		return index;
 	}
+	
+	public static <T extends Comparable <T>> int deleteOrdered(T array[], int size, T dato) {
+		int pos = binSearch(array, size, dato);
+		
+		if (pos >= 0) {
+			moveLeft(array, size, pos);
+			size--;
+		}
+		
+		return size;
+	}
 }
