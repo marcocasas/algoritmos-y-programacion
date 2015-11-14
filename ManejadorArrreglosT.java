@@ -82,4 +82,43 @@ public class ManejadorArreglosGenericos {
 		
 		return size;
 	}
+	
+	public static <T extends Comparable <T>> int deleteDesordered(T array[], int size, T dato) {
+		int pos = binSearch(array, size, dato);
+		
+		if (pos >= 0) {
+			moveLeft(array, size, pos);
+			size--;
+		}
+		
+		return size;
+	}
+        
+        public static <T extends Comparable <T>> int insertOrdered(T array[], int size, T dato) {
+		if(size < array.length) { //Saber si hay espacio. Comparo el número de elementos con la cantidad posible de elementos
+			int pos;
+			pos = binSearch(array, size, dato);
+			
+			if (pos < 0) {
+				pos = pos * -1 -1;
+			
+				moveRight(array,size,pos);
+			
+				array[pos] = dato;
+		
+				size = size + 1;
+			}
+		}
+		
+		return size;
+	}
+        
+        public static <T extends Comparable <T>> int insertDesordered(T array[], int length, T dato) {
+		if (length < array.length) {
+			length++;
+			array[length] = dato;
+		}
+		
+		return length; //Regreso el tamaño porque fuera de mi método no se refleja el cambio.
+	}
 }
