@@ -130,6 +130,10 @@ public class LID <T> {
 		
 		int i = indexOf(obj);
 		
+		if (i>= 0) {
+			resp = remove(i) != null;
+		}
+		
 		resp = remove(i) != null;
 		
 		return resp;
