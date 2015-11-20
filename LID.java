@@ -109,4 +109,29 @@ public class LID <T> {
 			size++;
 		}
 	}
+	
+	public T remove(int pos) {
+		T result = null;
+		
+		if (pos >= 0 && pos < size) {
+			result = collection[pos];
+			
+			collection[pos] = collection[size-1];
+			collection[size-1] = null;
+			
+			size--;
+		}
+		
+		return result;
+	}
+	
+	public boolean remove(T obj) {
+		boolean resp = false;
+		
+		int i = indexOf(obj);
+		
+		resp = remove(i) != null;
+		
+		return resp;
+	}
 }
