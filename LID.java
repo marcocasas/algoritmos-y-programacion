@@ -1,4 +1,4 @@
-public class LID <T>{
+public class LID <T> {
 	private T collection[];
 	private int size;
 	private final int MAX = 20;
@@ -72,5 +72,41 @@ public class LID <T>{
 	
 	public boolean contains(T obj) {
 		return ManejadorArreglosGenericos.seqSearch(collection, size, obj) >= 0;
+	}
+	
+	public void addFirst(T obj) {
+		if (size == collection.length) {
+			ensureCapacity(size*2);
+		}
+		
+		ManejadorArreglosGenericos.moveRight(collection, size, 0);
+		
+		collection[0] = obj;
+		
+		size++;
+	}
+	
+	public void addLast(T obj) {
+		if (size == collection.length) {
+			ensureCapacity(size*2);
+		}
+		
+		collection[size] = obj;
+		
+		size++;
+	}
+	
+	public void add(int pos, T obj) {
+		if (pos >= 0 && pos <= size) {
+			if (size == collection.length) {
+				ensureCapacity(size*2);
+			}
+			
+			ManejadorArreglosGenericos.moveRight(collection, size, pos);
+			
+			collection[pos] = obj;
+			
+			size++;
+		}
 	}
 }
