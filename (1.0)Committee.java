@@ -4,7 +4,7 @@ public class Committee implements Comparable <Committee> {
   private LIO <Chair> committeeChair;
   private LIO <Delegate> delegatesList;
   private String countriesList[];
-  private final int MAX_COUNTRIES;
+  private final int MAX_COUNTRIES = 35;
   
   public Committee() {
     committeChair = new LIO <Chair> ();
@@ -12,13 +12,10 @@ public class Committee implements Comparable <Committee> {
     countriesList = new String [MAX_COUNTRIES];
   }
   
-  public Committee(String president) {
+  public Committee(String name, String president) {
     this();
+    this.name = name;
     this.president = president;
-  }
-  
-  public int compareTo() {
-    
   }
   
   public String toString() {
@@ -45,5 +42,12 @@ public class Committee implements Comparable <Committee> {
       System.out.println("File reading error.");
       System.exit(-1);
     }
+  }
+  
+  public int compareTo(Object obj) {
+    Committee c = (Committee) obj;
+    int res = 0;
+    
+    return (delegatesList.size() - obj.delegatesList.size());
   }
 }
