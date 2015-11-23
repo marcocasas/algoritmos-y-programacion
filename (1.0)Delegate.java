@@ -21,6 +21,10 @@ public class Delegate implements Comparable <Delegate> {
     this.country = new Country(countryName);
   }
   
+  public Delegate(int delegateNumber) {
+    delegateNumber = delegateNumber;
+  }
+  
   public void registerPayment() {
     payment = true;
   }
@@ -43,5 +47,11 @@ public class Delegate implements Comparable <Delegate> {
   
   public int getDelegateNumber() {
     return delegateNumber;
+  }
+  
+  public int compareTo(Object obj) {
+    Delegate d = (Delegate) obj;
+    
+    return (this.delegateNumber - obj.delegateNumber);
   }
 }
