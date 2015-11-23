@@ -1,5 +1,6 @@
 public class Committee implements Comparable <Committee> {
   private String president;
+  private String name;
   private LIO <Chair> committeeChair;
   private LIO <Delegate> delegatesList;
   private String countriesList[];
@@ -14,5 +15,35 @@ public class Committee implements Comparable <Committee> {
   public Committee(String president) {
     this();
     this.president = president;
+  }
+  
+  public int compareTo() {
+    
+  }
+  
+  public String toString() {
+    StringBuilder str;
+    
+    str.append("Committee: ").append(name).append("\n");
+    str.append("President: ").append(president).append("\n");
+    
+    for(int i = 0; i<countriesList.size(); i++) {
+      str.append(delegatesList.get(i));
+    }
+  }
+  
+  public boolean registerCountriesList() {
+    Scanner read = new Scanner(new File("CList"));
+    
+    try {
+      int i = 0;
+        while(read.hasNext()) {
+          countriesList[i] = read.nextLine();
+          i++;
+        }
+    } catch (Exception e) {
+      System.out.println("File reading error.");
+      System.exit(-1);
+    }
   }
 }
