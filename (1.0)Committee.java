@@ -55,10 +55,13 @@ public class Committee implements Comparable <Committee> {
     return delegatesList.size();
   }
   
-  public boolean setDelegatesCountry(Delegate d, String country) {
+  public boolean setDelegatesCountry(int delegateNumber, String country) {
     
     Country c = new Country(country);
-    int pos = countriesList.indexOf(c);
+    Delegate d = new Delegate(delegateNumber);
+    
+    int countryIndex = countriesList.indexOf(c);
+    int pos
     
     if ( pos > 0 && !(countriesList.get(pos).getStatus()))
       delegatesList.get(delegatesList.indexOf(d)).setCountry(c);
