@@ -6,7 +6,7 @@ public class Country () {
   }
   
   public Country (String name) {
-    this.name = name;
+    this.name = name.toUpperCase();
     assigned = false;
   }
   
