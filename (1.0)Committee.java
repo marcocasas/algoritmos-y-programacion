@@ -1,7 +1,7 @@
 public class Committee implements Comparable <Committee> {
   private String president;
   private String name;
-  private LIO <Chair> committeeChair;
+  //private LIO <Chair> committeeChair;
   private LIO <Delegate> delegatesList;
   private String countriesList[];
   private final int MAX_COUNTRIES = 35;
@@ -46,8 +46,15 @@ public class Committee implements Comparable <Committee> {
   
   public int compareTo(Object obj) {
     Committee c = (Committee) obj;
-    int res = 0;
+
+    return (delegatesList.size() - c.delegatesList.size());
+  }
+  
+  public int numberOfDelegates() {
+    return delegatesList.size();
+  }
+  
+  public int setDelegatesCountry() {
     
-    return (delegatesList.size() - obj.delegatesList.size());
   }
 }
