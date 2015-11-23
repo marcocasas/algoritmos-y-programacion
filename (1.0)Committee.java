@@ -56,8 +56,12 @@ public class Committee implements Comparable <Committee> {
   }
   
   public boolean setDelegatesCountry(Delegate d, String country) {
-    if (countriesList.contains(country.toUpperCase()) && )
-      delegatesList.get(delegatesList.indexOf(d)).setCountry();
+    
+    Country c = new Country(country);
+    int pos = countriesList.indexOf(c);
+    
+    if ( pos > 0 && !(countriesList.get(pos).getStatus()))
+      delegatesList.get(delegatesList.indexOf(d)).setCountry(c);
     
   }
 }
