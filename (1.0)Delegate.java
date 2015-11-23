@@ -14,7 +14,7 @@ public class Delegate implements Comparable <Delegate> {
     delegateNumberMaster++;
   }
   
-  public Delegate(String name, String school, String countryName) {
+  public Delegate(String name, String school, String country) {
     this();
     this.name = name;
     this.school = school.toUpperCase();
@@ -25,6 +25,10 @@ public class Delegate implements Comparable <Delegate> {
     payment = true;
   }
   
+  public String setCountry() {
+    
+  }
+  
   public String getName() {
     return name;
   }
@@ -33,8 +37,8 @@ public class Delegate implements Comparable <Delegate> {
     return school;
   }
   
-  public String country() {
-    return country;
+  public String getCountry() {
+    return country.toString();
   }
   
   public int getDelegateNumber() {
