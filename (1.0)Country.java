@@ -10,6 +10,10 @@ public class Country () {
     assigned = false;
   }
   
+  public Country (String name) {
+    this.name = name;
+  }
+  
   public boolean assign() {
     assigned = true;
   }
