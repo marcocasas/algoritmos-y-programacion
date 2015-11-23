@@ -1,6 +1,6 @@
 public class Country () {
   private String name;
-  private boolean assigned;
+  private boolean status;
   
   public Country() {
   }
@@ -14,7 +14,11 @@ public class Country () {
     this.name = name;
   }
   
-  public boolean assign() {
-    assigned = true;
+  public boolean assignStatus() {
+    status = true;
+  }
+  
+  public boolean getStatus() {
+    return status;
   }
 }
