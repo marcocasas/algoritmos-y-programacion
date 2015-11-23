@@ -1,23 +1,24 @@
 public class Delegate implements Comparable <Delegate> {
   private String name;
-  private boolean payment;
+  private boolean paymentStatus;
   private String school;
-  private String country;
+  //private String country;
+  private Country country;
   private int delegateNumber;
   
   private static int delegateNumberMaster = 1;
   
   public Delegate() {
-    payment = false;
+    paymentStatus = false;
     delegateNumber = delegateNumberMaster;
     delegateNumberMaster++;
   }
   
-  public Delegate(String name, String school, String country) {
+  public Delegate(String name, String school, String countryName) {
     this();
     this.name = name;
     this.school = school.toUpperCase();
-    this.country = country.toUpperCase();
+    this.country = new Country(countryName);
   }
   
   public void registerPayment() {
