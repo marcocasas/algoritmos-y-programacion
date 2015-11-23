@@ -8,5 +8,9 @@ public class Country () {
   public Country (String name) {
     this.name = name;
     assigned = false;
-  }  
+  }
+  
+  public boolean assign() {
+    assigned = true;
+  }
 }
