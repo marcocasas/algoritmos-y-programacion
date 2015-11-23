@@ -3,14 +3,14 @@ public class Committee implements Comparable <Committee> {
   private String name;
   //private LIO <Chair> committeeChair;
   private LIO <Delegate> delegatesList;
-  private LID <String> countriesList[];
-  private boolean countriesListOccupied[];
-  private final int MAX_COUNTRIES = 35;
+  //private LID <String> countriesList[];
+  private LID <Country> countriesList[];
+  //private final int MAX_COUNTRIES = 35;
   
   public Committee() {
-    committeChair = new LIO <Chair> ();
+    //committeChair = new LIO <Chair> ();
     delegatesList = new LIO <Delegate> ();
-    countriesList = new String [MAX_COUNTRIES];
+    countriesList = new LID <Country> ();
   }
   
   public Committee(String name, String president) {
