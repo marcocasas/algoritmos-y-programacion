@@ -25,12 +25,12 @@ public class Committee implements Comparable <Committee> {
     str.append("Committee: ").append(name).append("\n");
     str.append("President: ").append(president).append("\n");
     
-    for(int i = 0; i<countriesList.size(); i++) {
+    for(int i = 0; i<delegatesList.size(); i++) {
       str.append(delegatesList.get(i));
     }
   }
   
-  public boolean registerCountriesList() {
+  public boolean registerListOfCountries() {
     Scanner read = new Scanner(new File("CList"));
     
     try {
