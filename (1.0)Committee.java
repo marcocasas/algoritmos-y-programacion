@@ -3,7 +3,8 @@ public class Committee implements Comparable <Committee> {
   private String name;
   //private LIO <Chair> committeeChair;
   private LIO <Delegate> delegatesList;
-  private String countriesList[];
+  private LID <String> countriesList[];
+  private boolean countriesListOccupied[];
   private final int MAX_COUNTRIES = 35;
   
   public Committee() {
@@ -54,7 +55,9 @@ public class Committee implements Comparable <Committee> {
     return delegatesList.size();
   }
   
-  public int setDelegatesCountry() {
+  public boolean setDelegatesCountry(Delegate d, String country) {
+    if (countriesList.contains(country.toUpperCase()) && )
+      delegatesList.get(delegatesList.indexOf(d)).setCountry();
     
   }
 }
