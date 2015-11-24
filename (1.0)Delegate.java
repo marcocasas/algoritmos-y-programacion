@@ -45,6 +45,10 @@ public class Delegate implements Comparable <Delegate> {
     return delegateNumber;
   }
   
+  public void setCountry(String c) {
+    country = new Country (c); 
+  }
+  
   public int compareTo(Object obj) {
     Delegate d = (Delegate) obj;
     
