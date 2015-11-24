@@ -29,10 +29,6 @@ public class Delegate implements Comparable <Delegate> {
     payment = true;
   }
   
-  public String setCountry() {
-    
-  }
-  
   public String getName() {
     return name;
   }
