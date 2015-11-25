@@ -45,13 +45,19 @@ public class Committee implements Comparable <Committee> {
     }
   }
   
+  public boolean registerDelegate(String name, String school) {
+    Delegate d = new Delegate(name, school);
+    
+    delegatesList.add(d);
+  }
+  
   public int compareTo(Object obj) {
     Committee c = (Committee) obj;
 
     return (delegatesList.size() - c.delegatesList.size());
   }
   
-  public int numberOfDelegates() {
+  public int getNumberOfDelegates() {
     return delegatesList.size();
   }
   
@@ -66,9 +72,20 @@ public class Committee implements Comparable <Committee> {
     int delegateIndex = delegatesList.indexOf(d);
     
     if (countryIndex > 0 && delegateIndex > 0) {
+      if (delegateIndex > 0) {
+        delegatesList.get(delegateIndex).setCountry(c); 
+        resp = "Register succesfull!";
+      }
       
+      else {
+        resp = "Delegate not listed.";
+      }
+    }
+    
+    else {
+      resp = "Country not listed."
     }
       
-    
+    return resp;
   }
 }
