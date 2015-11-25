@@ -2,7 +2,6 @@ public class Delegate implements Comparable <Delegate> {
   private String name;
   private boolean paymentStatus;
   private String school;
-  //private String country;
   private Country country;
   private int delegateNumber;
   
@@ -62,7 +61,7 @@ public class Delegate implements Comparable <Delegate> {
     StringBuilder str = new StringBuilder();
     
     str.append("Nombre: " + name + "\n");
-    str.append("Country: " + country + "\n");
+    str.append("Country: " + country.getName() + "\n");
     atr.append("Delegate Number: " + delegateNumber + "\n");
     str.append("School: " + school + "\n");
     str.append("Payment Status: " + paymentStatus + "\n");
