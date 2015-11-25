@@ -22,7 +22,7 @@ public class Country () {
     return name;
   }
   
-  public String knowIfPayed() {
+  public String knowIfAssigned() {
       String str;
       
       if (this.status == true) {
@@ -46,7 +46,7 @@ public class Country () {
       StringBuilder str = new StringBuilder();
       
       str.append("Country's Name: ").append(name + "\n");
-      str.append("Payment: ").append(this.knowIfPayed());
+      str.append("Assigned: ").append(this.knowIfAssigned());
       
       return str.toString();
   }
