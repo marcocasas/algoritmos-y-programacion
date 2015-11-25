@@ -21,4 +21,14 @@ public class Country () {
   public boolean getStatus() {
     return status;
   }
+  
+  public String getName() {
+    return name;
+  }
+  
+  public int equals(Object obj) {
+    Country c = (Country) obj;
+    
+    return (this.name == c.getName());
+  }
 }
