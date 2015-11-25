@@ -10,10 +10,6 @@ public class Country () {
     assigned = false;
   }
   
-  public Country (String name) {
-    this.name = name;
-  }
-  
   public boolean assignStatus() {
     status = true;
   }
@@ -26,9 +22,32 @@ public class Country () {
     return name;
   }
   
+  public String knowIfPayed() {
+      String str;
+      
+      if (this.status == true) {
+          str = "Yes.";
+      }
+      
+      else {
+          str = "No.";
+      }
+      
+      return str;
+  }
+  
   public int equals(Object obj) {
     Country c = (Country) obj;
     
-    return (this.name == c.getName());
+    return (this.name.equals(c.getName()));
+  }
+  
+  public String toString() {
+      StringBuilder str = new StringBuilder();
+      
+      str.append("Country's Name: ").append(name + "\n");
+      str.append("Payment: ").append(this.knowIfPayed());
+      
+      return str.toString();
   }
 }
