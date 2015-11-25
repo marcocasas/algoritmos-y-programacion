@@ -92,4 +92,9 @@ public class Committee implements Comparable <Committee> {
   public boolean addCountry(String country) {
     return countriesList.add(new Country (country));
   }
+  
+  public boolean removeCountry(String country) {
+    return countriesList.remove(new Country (country));
+  }
+  }
 }
