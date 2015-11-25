@@ -4,7 +4,7 @@ public class Committee implements Comparable <Committee> {
   //private LIO <Chair> committeeChair;
   private LIO <Delegate> delegatesList;
   //private LID <String> countriesList[];
-  private LID <Country> countriesList[];
+  private LID <Country> countriesList;
   //private final int MAX_COUNTRIES = 35;
   
   public Committee() {
@@ -87,5 +87,9 @@ public class Committee implements Comparable <Committee> {
     }
       
     return resp;
+  }
+  
+  public boolean addCountry(String country) {
+    return countriesList.add(new Country (country));
   }
 }
