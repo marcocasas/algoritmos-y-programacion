@@ -14,11 +14,10 @@ public class Delegate implements Comparable <Delegate> {
     delegateNumberMaster++;
   }
   
-  public Delegate(String name, String school, String country) {
+  public Delegate(String name, String school) {
     this();
     this.name = name;
     this.school = school.toUpperCase();
-    this.country = new Country(countryName);
   }
   
   public Delegate(int delegateNumber) {
