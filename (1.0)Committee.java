@@ -75,6 +75,7 @@ public class Committee implements Comparable <Committee> {
       if (delegateIndex > 0) {
         delegatesList.get(delegateIndex).setCountry(c); 
         resp = "Register succesfull!";
+        c.assignStatus();
       }
       
       else {
@@ -96,5 +97,19 @@ public class Committee implements Comparable <Committee> {
   public boolean removeCountry(String country) {
     return countriesList.remove(new Country (country));
   }
+  
+  public boolean checkDelegatePaymentStatus(int delegateNumber) {
+    Delegate d = new Delegate(delegateNumber);
+    int delegateIndex = delegatesList.indexOf(d);
+    
+    return delegatesList.get(delegateIndex).getPaymentStatus();
+  }
+  
+  public boolean checkCountryAssignation(String countryName) {
+    Country c = new Country (countryName);
+    int countryIndex = countriesList.indexOf(c);
+    
+    return countriesList.get(countriesIndex).getStatus();
+    
   }
 }
