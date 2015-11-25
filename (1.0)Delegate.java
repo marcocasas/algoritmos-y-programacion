@@ -40,6 +40,10 @@ public class Delegate implements Comparable <Delegate> {
     return country.toString();
   }
   
+  public boolean getPaymentStatus() {
+    return paymentStatus;
+  }
+  
   public int getDelegateNumber() {
     return delegateNumber;
   }
