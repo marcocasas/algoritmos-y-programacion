@@ -57,4 +57,16 @@ public class Delegate implements Comparable <Delegate> {
     
     return (this.delegateNumber - obj.delegateNumber);
   }
+  
+  public String toString() {
+    StringBuilder str = new StringBuilder();
+    
+    str.append("Nombre: " + name + "\n");
+    str.append("Country: " + country + "\n");
+    atr.append("Delegate Number: " + delegateNumber + "\n");
+    str.append("School: " + school + "\n");
+    str.append("Payment Status: " + paymentStatus + "\n");
+    
+    return str.toString();
+  }
 }
