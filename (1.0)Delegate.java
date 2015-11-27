@@ -51,18 +51,16 @@ public class Delegate implements Comparable <Delegate> {
     country = c; 
   }
   
-  public int compareTo(Object obj) {
-    Delegate d = (Delegate) obj;
-    
-    return (this.delegateNumber - obj.delegateNumber);
-  }
+  public int compareTo(Delegate other) {
+    return (this.delegateNumber - other.delegateNumber);
+	}
   
   public String toString() {
     StringBuilder str = new StringBuilder();
     
     str.append("Nombre: " + name + "\n");
     str.append("Country: " + country.getName() + "\n");
-    atr.append("Delegate Number: " + delegateNumber + "\n");
+    str.append("Delegate Number: " + delegateNumber + "\n");
     str.append("School: " + school + "\n");
     str.append("Payment Status: " + paymentStatus + "\n");
     
