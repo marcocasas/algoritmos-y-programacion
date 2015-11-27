@@ -1,14 +1,10 @@
 public class Committee implements Comparable <Committee> {
   private String president; //Nombre del presidente del comité.
   private String name; //Nombre del comité.
-  //private LIO <Chair> committeeChair;
   private LIO <Delegate> delegatesList; //Lista de delegados.
-  //private LID <String> countriesList[];
   private LID <Country> countriesList; //Lista de países del comité.
-  //private final int MAX_COUNTRIES = 35;
-  
+
   public Committee() { //Constructor por omisión.
-    //committeChair = new LIO <Chair> ();
     delegatesList = new LIO <Delegate> (); //Instancio lista de delegados.
     countriesList = new LID <Country> (); //Instanciación de lista de países.
   }
@@ -28,6 +24,7 @@ public class Committee implements Comparable <Committee> {
     
     for(int i = 0; i<delegatesList.size(); i++) {
       str.append(delegatesList.get(i));
+      str.append("\n");
     }
   }
   
@@ -37,8 +34,11 @@ public class Committee implements Comparable <Committee> {
     try {
       int i = 0;
         while(read.hasNext()) {
-          countriesList[i] = read.nextLine();
-          i++;
+          Country c = new Country(read.nextLine());
+          
+          if (!countrisList.contains(c)) { //Se revisa que el país a agregar no esté repetido.
+            countriesList.add(c);
+          }
         }
     } catch (Exception e) {
       System.out.println("File reading error.");
@@ -46,13 +46,13 @@ public class Committee implements Comparable <Committee> {
     }
   }
   
-  public boolean registerDelegate(String name, String school) { //¿Cómo me aseguro de no repetir?
+  public boolean registerDelegate(String name, String school) { //Método para agregar delegados al comité.
     Delegate d = new Delegate(name, school);
     
-    delegatesList.add(d);
+    delegatesList.add(d); //No se verifica que no se repita el nombre y escuela.
   }
   
-  public boolean deleteDelegate(int delegateNumber) { //¿Cómo decremento el número de delegados?
+  public boolean deleteDelegate(int delegateNumber) { //Método para eliminar delegado del comité.
     Delegate d = new Delegate(delegateNumber);
     
     delegatesList.remove(d);
@@ -88,7 +88,7 @@ public class Committee implements Comparable <Committee> {
       if (delegateIndex > 0) {
         delegatesList.get(delegateIndex).setCountry(c); 
         resp = "Register succesfull!";
-        c.assignStatus();
+        countriesList.get(c).assignStatus();
       }
       
       else {
