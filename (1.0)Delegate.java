@@ -24,7 +24,7 @@ public class Delegate implements Comparable <Delegate> {
   }
   
   public void registerPayment() {
-    payment = true;
+    paymentStatus = true;
   }
   
   public String getName() {
